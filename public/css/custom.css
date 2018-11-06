@@ -1,0 +1,8 @@
+#padre {
+    display: table;
+    height:200px;
+}
+#hijo {
+    display: table-cell;
+    vertical-align: middle;
+}
