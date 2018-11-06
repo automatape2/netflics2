@@ -12,15 +12,15 @@ class Episode extends Model
 
     public function previous_episode_name(){
     	$episode = Episode::join('seasons','seasons.id','episodes.season_id')
-    				->select('episodes.*')
     				->join('series','series.id','seasons.serie_id')
+                    ->select('episodes.*')
     				->where('series.key_name',$this->season->serie->key_name)
     				->where('seasons.number',$this->season->number)
     				->where('episodes.number',$this->number - 1)
     				->get()
     				->first();
 
-        dd($this->number - 1);
+        // dd($this->number - 1);
 
         $episode_name = "";
 
