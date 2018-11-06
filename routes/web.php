@@ -12,13 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $serie_name = 'housemd';
+    return redirect()->route('series.index',$serie_name);
 });
 
-Route::get('/test', function () {
-    return redirect()->route('hola');
+Route::get('{serie_name}','SerieController@index')
+	->name('series.index');
+
+Route::get('{serie_name}/seasons',function($serie_name){
+	$episode_number = 1;
+    return redirect()->route('seasons.index',[$serie_name,$episode_number]);
 });
 
-Route::get('/test/hola', function () {
-    return "Hola";
-})->name('hola');
+Route::get('{serie_name}/seasons/{season_number}','SeasonController@show')
+	->name('seasons.show');
+
+Route::get('{serie_name}/seasons/{season_number}/episodes/{episode}','EpisodeController@show')
+	->name('episodes.show');
+
