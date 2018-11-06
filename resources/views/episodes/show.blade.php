@@ -8,9 +8,9 @@
       
       <a style="width: 100%;color:white;font-size: 44px;top: 20px;position: fixed" href="{{route('seasons.show',[$episode->season->serie->key_name,$episode->season->number])}}"> 
       <i class="fa fa-arrow-alt-circle-left" aria-hidden="true"></i> 
-      T{{$episode->season->number}}</a>
+      T{{$episode->season->number}}</a>  
       
-      <div style="display: table-cell;vertical-align: middle">
+      <div style="display: table-cell;vertical-align: middle;">
         <p style="color:white;margin-bottom: 0px!important">
           <small>{{$episode->season->serie->name}} T{{$episode->season->number}}</small>
           <br>

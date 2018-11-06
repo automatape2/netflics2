@@ -11,13 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    $serie_name = 'housemd';
-    return redirect()->route('series.index',$serie_name);
-});
+Route::get('/', 'IndexController@index')->name('index');
 
 Route::get('{serie_name}','SerieController@index')
-	->name('series.index');
+	->name('series.show');
 
 Route::get('{serie_name}/seasons',function($serie_name){
 	$episode_number = 1;
@@ -29,4 +26,7 @@ Route::get('{serie_name}/seasons/{season_number}','SeasonController@show')
 
 Route::get('{serie_name}/seasons/{season_number}/episodes/{episode}','EpisodeController@show')
 	->name('episodes.show');
+
+Route::get('movies/{movie_id}','MovieController@show')
+	->name('movie.show');
 

@@ -2,7 +2,7 @@
 @section('title', 'Page Title')
 @section('content')
     <div class="col-lg-3">
-          <h1 class="my-4">{{$serie->name}}</h1>
+          <h1 class="my-4">Series</h1>
           <div class="list-group">
               @foreach($serie->seasons as $season)
                 <a href="#" class="list-group-item">Temporada {{$season->number}}</a>
